@@ -9,7 +9,7 @@ pipeline {
         }
 stage('run stape') {
               steps{
-              script { sh "docker run -tid -p 8000:80 my-image:v1"
+              script { sh "docker run -tid -p 80:80 my-image:v1"
               }
            }
         }
