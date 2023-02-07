@@ -3,9 +3,16 @@ pipeline {
     stages {
         stage('Build stape') {
               steps{
-              script { def customImage = docker.build("my-image:${env.BUILD_ID}", "-f Dockerfile .")
+              script { def customImage = docker.build("my-image:v1", "-f Dockerfile .")
               }
            }
         }
+stage('run stape') {
+              steps{
+              script { sh "docker run -tid -p 80:80 my-image:v1"
+              }
+           }
+        }
+
     }
 }
