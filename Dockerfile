@@ -1,4 +1,4 @@
-FROM jenkins/jenkins:lts-jdk11
+FROM ubuntu:20.04
 # if we want to install via apt
 USER root
 RUN apt-get update && apt-get install nginx -y
