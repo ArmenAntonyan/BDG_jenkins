@@ -11,7 +11,7 @@ pipeline {
                 
                 { def customImage = docker.build("${DOCKER_USER}/image_from_jenkins:v1", "-f Dockerfile .")
                 customImage.push()
-                castomImage.push 'latest'
+                customImage.push 'latest'
                 }
                 }  
                  
