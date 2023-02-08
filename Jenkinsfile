@@ -7,7 +7,7 @@ pipeline {
                 withCredentials([string(credentialsId: 'docker_user', variable: 'DOCKER_USER'),
                                  string(credentialsId: 'docker_pass', variable: 'DOCKER_PASS')])
                 { sh "echo $DOCKER_PASS | docker login --username $DOCKER_USER --password-stdin"
-                docker.withRegistery("https://index.docker.io")
+                docker.withRegistry("https://index.docker.io")
                 
                 { def customImage = docker.build("${DOCKER_USER}/image_from_jenkins:v1", "-f Dockerfile .")
                 customImage.push()
