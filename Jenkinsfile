@@ -9,7 +9,7 @@ pipeline {
                 {sh "echo $DOCKER_PASSWORD | docker login --username $DOCKER_USERNAME --password-stdin"
                 docker.whitRegistery("https://index.docker.io")
                 
-                { def customImage = docker.build("${DOCKER_USER}/image_from_jenkins:v1", "-f Dockerfile .")
+                { def customImage = docker.build("$DOCKER_USERNAME/image_from_jenkins:v1", "-f Dockerfile .")
                 customImage.push()
                 castomImage.push 'latest'
                 }
