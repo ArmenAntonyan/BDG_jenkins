@@ -5,7 +5,7 @@ pipeline {
               steps{
               script {
                 withCredentials([string(credentialsId: 'docker_user', variabl: 'DOCKER_USER'),
-                               string(credentialsId: 'docker_pass', variabl: 'DOCKER_PASS')])
+                                 string(credentialsId: 'docker_pass', variabl: 'DOCKER_PASS')])
                 {sh "echo ${DOCKER_PASS} | docker login --username ${DOCKER_USER} --password-stdin"
                 docker.whitRegistery("https://index.docker.io")
                 
