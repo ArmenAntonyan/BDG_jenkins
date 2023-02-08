@@ -3,9 +3,9 @@ pipeline {
     stages {
         stage('Build stape') {
               steps{
-              script {
-                withCredentials([string(credentialsId: 'docker_user', variabl: 'DOCKER_USER'),
-                                 string(credentialsId: 'docker_pass', variabl: 'DOCKER_PASS')])
+                 script {
+                withCredentials([string(credentialsId: 'docker_user', variable: 'DOCKER_USER'),
+                                 string(credentialsId: 'docker_pass', variable: 'DOCKER_PASS')])
                 {sh "echo ${DOCKER_PASS} | docker login --username ${DOCKER_USER} --password-stdin"
                 docker.whitRegistery("https://index.docker.io")
                 
