@@ -13,7 +13,7 @@ pipeline {
                 customImage.push()
                 customImage.push 'latest'
                  }
-                }  
+               }  
                  
               }
            }
