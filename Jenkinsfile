@@ -4,9 +4,9 @@ pipeline {
         stage('Build stape') {
               steps{
                  script {
-                withCredentials([string(credentialsId: 'docker_user', variable: 'DOCKER_USER'),
-                                 string(credentialsId: 'docker_pass', variable: 'DOCKER_PASS')])
-                {sh "echo ${DOCKER_PASS} | docker login --username ${DOCKER_USER} --password-stdin"
+                // withCredentials([string(credentialsId: 'docker_user', variable: 'DOCKER_USER'),
+                //                  string(credentialsId: 'docker_pass', variable: 'DOCKER_PASS')])
+                {sh "echo DOCKER_PASSWORD | docker login --username DOCKER_USERNAME --password-stdin"
                 docker.whitRegistery("https://index.docker.io")
                 
                 { def customImage = docker.build("${DOCKER_USER}/image_from_jenkins:v1", "-f Dockerfile .")
