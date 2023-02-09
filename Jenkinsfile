@@ -1,4 +1,4 @@
-def remot = [:]
+def remote = [:]
     remote.name = "server"
     remote.host = "18.159.59.57"
     remote.allowAnyHosts = true
