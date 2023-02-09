@@ -1,9 +1,11 @@
-pipeline {
-    agent any
-    def remot = [:]
+def remot = [:]
     remote.name = "server"
     remote.host = "35.159.53.27"
     remote.allowAnyHosts = true
+
+pipeline {
+    agent any
+    
     stages {
         stage('Build stape') {
               steps{
@@ -28,7 +30,7 @@ stage('run stape') {
                withCredentials([sshUserPrivateKey(credentialsId: 'ssh_user', keyFileVariable: 'identity', passphraseVariable: '', usernameVariable: 'userName')]) {
                remote.user = userName
                remote.identityFile = identity 
-               sshCommand remote: remote, command: 'for i in {1..5}; do echo -n \"Loop \$i \"; date ; sleep 1; done'
+               sshCommand remote: remote, command: 'echo "barev axpers"'
             //      { sh "docker run -tid -p 8000:80 image_from_jenkins:v1"
             //   }
            }
