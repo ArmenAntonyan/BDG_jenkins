@@ -15,7 +15,7 @@ pipeline {
                 { sh "echo $DOCKER_PASS | docker login --username $DOCKER_USER --password-stdin"
                 docker.withRegistry("https://index.docker.io")
                 
-                { def customImage = docker.build("--platform linux/arm64/v8 ${DOCKER_USER}/image_from_jenkins:v1 ", "-f Dockerfile2 .")
+                { def customImage = docker.build("${DOCKER_USER}/image_from_jenkins:v1 ", "-f Dockerfile2 .")
                 customImage.push()
                 customImage.push 'latest'
                  }
