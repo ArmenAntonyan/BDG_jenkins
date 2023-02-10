@@ -30,7 +30,7 @@ stage('run stape') {
                withCredentials([sshUserPrivateKey(credentialsId: 'ssh_user', keyFileVariable: 'identity', passphraseVariable: '', usernameVariable: 'userName')]) {
                remote.user = userName
                remote.identityFile = identity 
-               sshCommand remote: remote, command: "docker rm -f from-jenkins"
+               //sshCommand remote: remote, command: "docker rm -f from-jenkins"
                sshCommand remote: remote, command: "docker run -tid -p 80:80 --name from-jenkins armenantonyan/image_from_jenkins:v1"
 
            }
