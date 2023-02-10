@@ -1,7 +1,8 @@
 FROM ubuntu:latest
 
-RUN apt-get update && apt-get install nginx -y
+RUN apt update
+RUN apt install nginx -y 
 
-CMD ["/usr/sbin/nginx", "-g", "daemon off;"]
+CMD ["nginx", "-g", "daemon off;"]
 
  
