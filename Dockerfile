@@ -1,5 +1,5 @@
-FROM nginx
+FROM ubuntu:latest
+
 RUN apt-get update
-USER root
-RUN rm -rf /usr/share/nginx/html/index.html
-#COPY index.html /usr/share/nginx/html/
+RUN apt-get install nginx
+CMD [ "nginx", "-g", "daemon off;" ]
