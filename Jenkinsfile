@@ -31,7 +31,7 @@ stage('run stape') {
                remote.user = userName
                remote.identityFile = identity 
                //sshCommand remote: remote, command: "docker rm -f from-jenkins"
-               sshCommand remote: remote, command: "docker run -tid -p 80:80 --name from-jenkins armenantonyan/image_from_jenkins:v1"
+               //sshCommand remote: remote, command: "docker run -tid -p 80:80 --name from-jenkins armenantonyan/image_from_jenkins:v1"
 
            }
         }
